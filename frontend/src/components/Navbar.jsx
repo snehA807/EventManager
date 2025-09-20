@@ -23,6 +23,11 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const handleBellClick = () => {
+    navigate("/live-updates");
+    setIsOpen(false);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-colors duration-300 ${
@@ -68,7 +73,11 @@ const Navbar = () => {
               Student Login
             </Link>
 
-            <button className="relative p-2 hover:text-red-500">
+            {/* Desktop Bell Button */}
+            <button
+              className="relative p-2 hover:text-red-500"
+              onClick={handleBellClick}
+            >
               <Bell size={22} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
@@ -120,9 +129,13 @@ const Navbar = () => {
             Student Login
           </Link>
 
-          <button className="flex items-center gap-2 hover:text-red-500" onClick={handleCloseMenu}>
+          {/* Mobile Bell Button */}
+          <button
+            className="relative p-2 hover:text-red-500"
+            onClick={handleBellClick}
+          >
             <Bell size={22} />
-            Notifications
+            <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
           </button>
         </div>
       )}

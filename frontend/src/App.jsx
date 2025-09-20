@@ -7,6 +7,7 @@ import ClubLogin from "./pages/ClubLogin";
 import Clubs from "./pages/clubs";
 import ClubDetails from "./pages/ClubDetails";
 import About from "./pages/About";
+import Liveupdates from './pages/Liveupdates';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/clubs" element={<Clubs />} />
         <Route path="/clubs/:id" element={<ClubDetails />} />
         <Route path="/about" element={<About />} />
+        <Route path="/live-updates" element={<Liveupdates />} />
 
       
       </Routes>

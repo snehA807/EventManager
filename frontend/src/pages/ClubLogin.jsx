@@ -26,11 +26,28 @@ const ClubLogin = () => {
     setLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      alert("Club Login Successful!");
-      navigate("/");
+      const response = await fetch("http://localhost:5001/api/club-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      // Save JWT and club info to localStorage
+      localStorage.setItem("clubToken", data.token);
+      localStorage.setItem("clubInfo", JSON.stringify(data.club));
+
+      // Navigate to clubs page
+      navigate("/clubs");
     } catch (err) {
-      setError("Login failed. Please try again.");
+      setError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -74,14 +91,20 @@ const ClubLogin = () => {
 
         <p className="text-center text-gray-400 mt-4 text-sm">
           Don't have an account?{" "}
-          <Link to="/club-register" className="text-red-500 font-semibold hover:underline">
+          <Link
+            to="/club-register"
+            className="text-red-500 font-semibold hover:underline"
+          >
             Register as Club
           </Link>
         </p>
 
         <p className="text-center text-gray-400 mt-2 text-sm">
           Are you a student?{" "}
-          <Link to="/login" className="text-red-500 font-semibold hover:underline">
+          <Link
+            to="/login"
+            className="text-red-500 font-semibold hover:underline"
+          >
             Student Login
           </Link>
         </p>
