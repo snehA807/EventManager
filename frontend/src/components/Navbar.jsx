@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Bell, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png"; // Import your logo
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Heading */}
-          <div className="flex flex-col cursor-pointer" onClick={() => navigate("/")}>
-            <h1 className="text-2xl font-bold text-red-500">Campus Events</h1>
-            <span className="text-sm text-gray-300">University Event Hub</span>
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img src={logo} alt="Logo" className="h-20 w-20 mr-2" /> {/* Logo added */}
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-bold text-red-500">UEvents</h1>
+              <span className="text-sm text-gray-300">University Event Hub</span>
+            </div>
           </div>
 
           {/* Desktop Menu */}

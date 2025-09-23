@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import m1 from "../assets/m1.jpg";
+import m1 from "../assets/m1.jpeg";
 import { Calendar, Users, Award, Search, SlidersHorizontal } from "lucide-react";
 import { Laptop, Music, Briefcase, Heart, Globe, Gamepad } from "lucide-react";
 
@@ -20,13 +20,13 @@ function Home() {
     <div className="w-full">
       {/* Hero Section */}
       <div
-        className="relative w-full h-screen bg-no-repeat bg-cover bg-center"
+        className="relative w-full min-h-screen md:h-screen bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${m1})` }}
       >
         <Navbar />
 
         {/* Buttons Section */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-12 flex space-x-6">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-12 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
           <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-black transition">
             Browse Events
           </button>
@@ -36,13 +36,13 @@ function Home() {
         </div>
 
         {/* Icons at bottom of hero image */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-12 text-white">
-          <div className="flex flex-col items-center">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center space-x-8 md:space-x-12 text-white">
+          <div className="flex flex-col items-center mb-4 md:mb-0">
             <Calendar size={36} className="mb-2" />
             <span className="text-2xl font-bold">150+</span>
             <span className="text-sm">Active Events</span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-4 md:mb-0">
             <Users size={36} className="mb-2" />
             <span className="text-2xl font-bold">50+</span>
             <span className="text-sm">Clubs</span>
