@@ -26,7 +26,7 @@ const ClubLogin = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5001/api/club-login", {
+      const response = await fetch("http://localhost:5000/api/club-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -44,9 +44,10 @@ const ClubLogin = () => {
       localStorage.setItem("clubToken", data.token);
       localStorage.setItem("clubInfo", JSON.stringify(data.club));
 
-      // Navigate to clubs page
-      navigate("/clubs");
+      // <-- Redirect to Club Dashboard (replace history so Back won't go to login)
+      navigate("/club-dashboard", { replace: true });
     } catch (err) {
+      console.error("Login error:", err);
       setError("Network error. Please try again.");
     } finally {
       setLoading(false);

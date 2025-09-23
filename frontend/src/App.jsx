@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ClubLogin from "./pages/ClubLogin";
+// import ClubLogin from "./pages/ClubLogin";
 import Clubs from "./pages/clubs";
 import ClubDetails from "./pages/ClubDetails";
 import About from "./pages/About";
 import Liveupdates from './pages/Liveupdates';
+import ClubDashboard from "./pages/ClubDashboard"; 
+import ClubLogin from "./pages/ClubLogin"; 
+import Members from "./pages/Members";
 
 function App() {
   return (
@@ -22,6 +25,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/live-updates" element={<Liveupdates />} />
 
+
+<Route path="/members" element={<Members />} />
+
+        <Route path="/club-dashboard" element={<ClubDashboard />} />
+      
       
       </Routes>
     </Router>
