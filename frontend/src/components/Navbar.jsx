@@ -153,8 +153,7 @@ const Navbar = () => {
           {/* ✅ Chatbot Icon in Mobile Menu */}
           <button
             className="p-2 hover:text-red-500"
-            onClick={handleChatbotClick}
-          >
+            onClick={onChatOpen}>
             <MessageSquare size={22} />
           </button>
         </div>

@@ -26,7 +26,9 @@ function App() {
         <Route path="/clubs/:id" element={<ClubDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/live-updates" element={<Liveupdates />} />
-     <Route path="/chatbot" element={<Chatbot />} />
+        <Route path="/events" element={<Events />} />
+
+     <Route path="/chatBot" element={<ChatBot />} />
 
 
 <Route path="/members" element={<Members />} />
