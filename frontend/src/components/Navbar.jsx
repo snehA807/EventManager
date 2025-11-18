@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Bell, Menu, X } from "lucide-react";
+import { Bell, Menu, X, MessageSquare } from "lucide-react";  // ✅ Chatbot icon added
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"; // Import your logo
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +29,12 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  // ✅ Chatbot Button Click
+  const handleChatbotClick = () => {
+    navigate("/chatbot");
+    setIsOpen(false);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-colors duration-300 ${
@@ -37,12 +43,13 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo & Heading */}
+
+          {/* Logo */}
           <div
             className="flex items-center cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <img src={logo} alt="Logo" className="h-20 w-20 mr-2" /> {/* Logo added */}
+            <img src={logo} alt="Logo" className="h-20 w-20 mr-2" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-bold text-red-500">UEvents</h1>
               <span className="text-sm text-gray-300">University Event Hub</span>
@@ -51,9 +58,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
-            <Link to="/events" className="hover:text-red-500">
-              Events
-            </Link>
+            <Link to="/events" className="hover:text-red-500">Events</Link>
 
             <button
               onClick={handleClubsClick}
@@ -62,9 +67,7 @@ const Navbar = () => {
               Clubs
             </button>
 
-            <Link to="/about" className="hover:text-red-500">
-              About
-            </Link>
+            <Link to="/about" className="hover:text-red-500">About</Link>
 
             <Link
               to="/club-login"
@@ -80,13 +83,18 @@ const Navbar = () => {
               Student Login
             </Link>
 
-            {/* Desktop Bell Button */}
-            <button
-              className="relative p-2 hover:text-red-500"
-              onClick={handleBellClick}
-            >
+            {/* Bell Button */}
+            <button className="relative p-2 hover:text-red-500" onClick={handleBellClick}>
               <Bell size={22} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+
+            {/* ✅ Chatbot Icon Button (NEW) */}
+            <button
+              className="p-2 hover:text-red-500"
+              onClick={handleChatbotClick}
+            >
+              <MessageSquare size={24} />
             </button>
           </div>
 
@@ -136,13 +144,18 @@ const Navbar = () => {
             Student Login
           </Link>
 
-          {/* Mobile Bell Button */}
-          <button
-            className="relative p-2 hover:text-red-500"
-            onClick={handleBellClick}
-          >
+          {/* Bell Button */}
+          <button className="relative p-2 hover:text-red-500" onClick={handleBellClick}>
             <Bell size={22} />
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+
+          {/* ✅ Chatbot Icon in Mobile Menu */}
+          <button
+            className="p-2 hover:text-red-500"
+            onClick={handleChatbotClick}
+          >
+            <MessageSquare size={22} />
           </button>
         </div>
       )}
